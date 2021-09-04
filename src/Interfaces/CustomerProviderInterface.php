@@ -5,9 +5,9 @@ namespace App\Interfaces;
 interface CustomerProviderInterface
 {
     /**
-     * @param int $count
+     * @param array $filter
      *
      * @return array
      */
-    public function getCustomers(int $count): array;
+    public function getCustomers(array $filter): array;
 }
