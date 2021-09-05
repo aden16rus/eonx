@@ -25,8 +25,6 @@
 
 <br><pre>sudo bash -c 'echo "127.0.0.1 symfony.localhost" >> /etc/hosts'</pre>
 
-<br>    - when all components work properly default page will contains this copy of instruction on </pre>symfony.localhost:{choosen_port}</pre>
-
 <br>    - Go to php container
 
 <br><pre>docker exec -ti eonx-php sh</pre>
@@ -51,6 +49,7 @@
 
 <br><pre>php bin/console customers:import 100</pre>
 
+<br>    - when all components work properly default page will contains this copy of instruction on <pre>symfony.localhost:{choosen_port}</pre>
 <br>    - Check api endpoints
 
 <br><pre>symfony.localhost:{choosen_port}/customers</pre>

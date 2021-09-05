@@ -18,11 +18,14 @@
 
 ```sudo bash -c 'echo "127.0.0.1 symfony.localhost" >> /etc/hosts'```
 
-- when all components work properly default page will contains this copy of instruction on ```symfony.localhost:{choosen_port}```
 
 - Go to php container
 
 ```docker exec -ti eonx-php sh```
+
+- Install composer dependencies
+
+```composer install```
 
 - Create databases
 
@@ -43,6 +46,8 @@
 - Run import customers
 
 ```php bin/console customers:import 100```
+
+- when all components work properly default page will contain this copy of instruction on ```symfony.localhost:{choosen_port}```
 
 - Check api endpoints
 
