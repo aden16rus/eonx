@@ -31,6 +31,7 @@ class CustomerRepository extends ServiceEntityRepository
     {
         $offset = ($page - 1) * $quantity;
         return $this->createQueryBuilder('c')
+            ->select('c.id, c.fullName, c.email, c.country')
             ->setFirstResult($offset)
             ->setMaxResults($quantity)
             ->getQuery()
