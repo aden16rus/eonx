@@ -2,6 +2,7 @@
 
 namespace App\Provider;
 
+use App\Exception\ApiException;
 use App\Interfaces\CustomerProviderInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
@@ -44,26 +45,26 @@ class CustomerApiProvider implements CustomerProviderInterface
             $response = $this->client->request('GET', 'https://randomuser.me/api/?' . http_build_query($filter));
         } catch (TransportExceptionInterface $e) {
             $this->logger->error($e->getMessage());
-            throw new \Exception('internal error');
+            throw new ApiException('internal error');
         }
     
         try {
             return $response->toArray()['results'];
         } catch (ClientExceptionInterface $e) {
             $this->logger->error($e->getMessage());
-            throw new \Exception('internal error');
+            throw new ApiException('internal error');
         } catch (DecodingExceptionInterface $e) {
             $this->logger->error($e->getMessage());
-            throw new \Exception('internal error');
+            throw new ApiException('internal error');
         } catch (RedirectionExceptionInterface $e) {
             $this->logger->error($e->getMessage());
-            throw new \Exception('internal error');
+            throw new ApiException('internal error');
         } catch (ServerExceptionInterface $e) {
             $this->logger->error($e->getMessage());
-            throw new \Exception('internal error');
+            throw new ApiException('internal error');
         } catch (TransportExceptionInterface $e) {
             $this->logger->error($e->getMessage());
-            throw new \Exception('internal error');
+            throw new ApiException('internal error');
         }
     }
 }
