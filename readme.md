@@ -16,7 +16,7 @@
 
 - add domain to hosts
 
-```sudo echo '127.0.0.1 symfony.localhost' > /etc/hosts```
+```sudo bash -c 'echo "127.0.0.1 symfony.localhost" >> /etc/hosts'```
 
 - when all components work properly default page will contains this copy of instruction on ```symfony.localhost:{choosen_port}```
 
