@@ -1,0 +1,3 @@
+upstream php-upstream {
+    server eonx-php:9001;
+}

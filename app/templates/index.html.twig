@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Eonx test application</title>
+    </head>
+    <body>
+<br>    - Copy repository to local drive
+
+<br><pre>git clone https://github.com/aden16rus/eonx eonx_test</pre>
+
+<br>    - Build containers with docker-compose util
+
+<br><pre>cd ./eonx_test/docker_compose && docker-compose build</pre>
+
+<br>    - Run containers
+
+<br><pre>docker-compose up -d</pre>
+
+<br>    - change config if you get errors or conflicts with another projects and try again
+
+<br><pre>nano .env</pre>
+
+<br>    - add domain to hosts
+
+<br><pre>sudo echo '127.0.0.1 symfony.localhost' > /etc/hosts</pre>
+
+<br>    - when all components work properly default page will contains this copy of instruction on </pre>symfony.localhost:{choosen_port}</pre>
+
+<br>    - Go to php container
+
+<br><pre>docker exec -ti eonx-php sh</pre>
+
+<br>    - Create databases
+
+<br><pre>php bin/console d:d:c</pre>
+
+<br><pre>php bin/console d:d:c --env=test</pre>
+
+<br>    - Run migrations
+
+<br><pre>php bin/console d:m:m</pre>
+
+<br><pre>php bin/console d:m:m --env=test</pre>
+
+<br>    - Check tests
+
+<br><pre>php ./vendor/bin/phpunit</pre>
+
+<br>    - Run import customers
+
+<br><pre>php bin/console customers:import 100</pre>
+
+<br>    - Check api endpoints
+
+<br><pre>symfony.localhost:{choosen_port}/customers</pre>
+
+<br><pre>symfony.localhost:{choosen_port}/customers/{customerId}</pre>
+    <style>
+        pre {
+            background: #ccc;
+            display: inline-block;
+            padding: 3px;
+            border-radius: 4px;
+        }
+    </style>
+    </body>
+</html>
